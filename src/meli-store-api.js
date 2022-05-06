@@ -4,3 +4,8 @@ export {
   setProdutcs,
   getProducts,
 } from "./service/products";
+
+export {
+  getCarProducts,
+  addProductToCar,
+} from "./service/shopping-car";

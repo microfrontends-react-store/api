@@ -1,7 +1,7 @@
 {
   "name": "@meli-store/api",
   "scripts": {
-    "start": "webpack serve",
+    "start": "webpack serve --port 8081",
     "start:standalone": "webpack serve --env standalone",
     "build": "concurrently npm:build:*",
     "build:webpack": "webpack --mode=production",
@@ -12,7 +12,10 @@
     "prepare": "husky install",
     "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
     "watch-tests": "cross-env BABEL_ENV=test jest --watch",
-    "coverage": "cross-env BABEL_ENV=test jest --coverage"
+    "coverage": "cross-env BABEL_ENV=test jest --coverage",
+    "fix": "./node_modules/.bin/eslint src --fix",
+    "predeploy": "npm run build:webpack",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
@@ -27,6 +30,7 @@
     "eslint-config-important-stuff": "^1.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.1",
+    "gh-pages": "^3.2.3",
     "husky": "^7.0.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.6",
